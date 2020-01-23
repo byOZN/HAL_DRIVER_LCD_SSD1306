@@ -1,7 +1,8 @@
 
 #include"ssd1306.h"
 #define I2c_port &SSD1306_I2C_PORT
-long map(long x, long in_min, long in_max, long out_min, long out_max)
+
+static long map(long x, long in_min, long in_max, long out_min, long out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -179,7 +180,7 @@ char ssd1306_WriteChar(char ch, FontDef Font, SSD1306_COLOR color)
 	return ch;
 }
 //
-//  СТрока состояния 
+//  горизонтальная строка состояния 
 //
 void ssd1306_StringState(uint8_t x, uint8_t y,uint8_t  WIDTH_X, uint8_t HEIGHT_y, SSD1306_COLOR color, uint8_t Persent) 
 {
